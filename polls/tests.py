@@ -9,5 +9,4 @@ class HomeTest(TestCase):
   def test_index_view_should_get_Hello_World(self):
     response = self.client.get('/hello')
     content = response.content
-    encoding = 'utf-8'
-    self.assertEqual(str(content, encoding), "Hello World")
+    self.assertEqual(content, b'Hello World')
