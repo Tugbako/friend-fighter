@@ -1,10 +1,10 @@
-#Introduction
+# Introduction
 
-##How to install Django on Windows
+## How to install Django on Windows
 This document will guide you through installing Python 3.7 and Django on Windows. It also provides instructions for installing virtualenv and virtualenvwrapper, which make it easier to work on Python projects. This is meant as a beginner’s guide for users working on Django projects and does not reflect how Django should be installed when developing patches for Django itself.
 
 The steps in this guide have been tested with Windows 7, 8, and 10. In other versions, the steps would be similar. You will need to be familiar with using the Windows command prompt.
-##Install Python
+## Install Python
 Django is a Python web framework, thus requiring Python to be installed on your machine. At the time of writing, Python 3.7 is the latest version.
 
 To install Python on your machine go to https://python.org/downloads/. The website should offer you a download button for the latest Python version. Download the executable installer and run it. 
@@ -13,10 +13,10 @@ After installation, open the command prompt and check that the Python version ma
 ```sh
 ...\> python
 ```
-###About pip
+### About pip
 pip is a package manage for Python. It makes installing and uninstalling Python packages (such as Django!) very easy. For the rest of the installation, we’ll use pip to install Python packages from the command line.
 
-###Install virtualenv
+### Install virtualenv
 virtualenv provides a dedicated environment for each Django project you create. While not mandatory, this is considered a best practice and will save you time in the future when you’re ready to deploy your project. To do this, run:
 
 Create a virtual environment for your project:
@@ -27,7 +27,7 @@ The virtual environment will be activated automatically and you’ll see “(fri
 ```sh
 ...\> workon friend
 ```
-##Install Django
+## Install Django
 Django can be installed easily using pip within your virtual environment.
 
 In the command prompt, ensure your virtual environment is active, and execute the following command:
@@ -36,6 +36,24 @@ In the command prompt, ensure your virtual environment is active, and execute th
 ```
 This will download and install the latest Django release.
 
+## Create Postgresql users on locale
+
+Connect to Postgresql CLI with `psql`. Then run following sql commands.
+
+```console
+CREATE USER friend_fighter_user WITH PASSWORD 'friend_fighter_password';
+CREATE DATABASE friend_fighter_db WITH OWNER friend_fighter_user;
+```
+
+If you want to change Database name or user or password you need to add this veriables to `.env` file.
+Example of custom database settings at `.env`
+
+```sh
+DB_NAME=custom_friend_fighter_db
+DB_USER=custom_friend_fighter_user
+DB_PASSWORD=custom_friend_fighter_password
+```
+
 ### Running test Cases
 
 For running test cases you can run follow script.
@@ -43,4 +61,3 @@ For running test cases you can run follow script.
 ```sh
 python manage.py test
 ```
-
