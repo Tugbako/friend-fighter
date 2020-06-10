@@ -25,7 +25,9 @@ SECRET_KEY = 'yh)rwmd7o@$fy427*_8ex)e-3js-nca73-^5gf2qrijd_n#u^$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'friend-fighters.herokuapp.com'
+]
 
 
 # Application definition
