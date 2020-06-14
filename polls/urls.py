@@ -1,7 +1,9 @@
 from django.urls import path
 
-from . import views
+from .views import *
+from django.conf.urls import url
+from django.views.generic import TemplateView
 
 urlpatterns = [
-  path('hello', views.index, name='index')
+  url(r'^mainpage', mainpage, name='mainpage')
 ]
